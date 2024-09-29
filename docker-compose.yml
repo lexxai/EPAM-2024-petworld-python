@@ -18,8 +18,11 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
-      - mailtrap
+      db:
+        condition: service_healthy
+      mailtrap:
+        condition: service_healthy
+
     networks:
       - app-network
 
@@ -37,6 +40,12 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
   mailtrap:
     image: dbck/mailtrap:latest
     environment:
