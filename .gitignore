@@ -1,0 +1,71 @@
+.
+
+# Ignore python cache
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Ignore db migrations
+*/alembic/versions/
+
+# Ignore logs
+logs/
+
+# Ignore tests
+tests/
+
+# Ignore IDE files
+.vscode/
+.idea/
+.env
+.env.example
+local_settings.py
+tox.ini
+
+# Ignore build files
+build/
+dist/
+*.egg-info/
+*.spec
+*.whl
+*.zip
+
+# Ignore virtualenv
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+pyvenv.cfg
+.tox/
+
+# Ignore node modules
+node_modules/
+
+# Ignore data files
+data/
+migrations/
+static/build/
+static/node_modules/
+
+# Ignore user files
+instance/
+user_data/
+
+# Ignore system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore editor files
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
