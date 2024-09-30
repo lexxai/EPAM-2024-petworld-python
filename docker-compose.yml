@@ -7,14 +7,19 @@ services:
     volumes:
       - ./pet-project:/pet-project
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_USER=admin
-      - DATABASE_PASSWORD=admin
-      - DATABASE_NAME=petproject
-      - SMTP_HOST=mailtrap
-      - SMTP_PORT=587
-      - SMTP_USERNAME=mailtrap
-      - SMTP_PASSWORD=supersecret
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - APP_CONFIG__DB__URL=${APP_CONFIG__DB__URL}
+      - APP_CONFIG__DB__ALEMBIC_URL=${APP_CONFIG__DB__URL}
+      - APP_CONFIG__DB__ECHO=${APP_CONFIG__DB__ECHO}
+      - APP_CONFIG__ACCESS_TOKEN__RESET_PASSWORD_TOKEN_SECRET=${APP_CONFIG__ACCESS_TOKEN__RESET_PASSWORD_TOKEN_SECRET}
+      - APP_CONFIG__ACCESS_TOKEN__VERIFICATION_TOKEN_SECRET=${APP_CONFIG__ACCESS_TOKEN__VERIFICATION_TOKEN_SECRET}
     ports:
       - "8000:8000"
     depends_on:
@@ -30,10 +35,12 @@ services:
     image: mysql
     container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: petproject
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+
+
     ports:
       - "3306:3306"
     volumes:
@@ -41,7 +48,7 @@ services:
     networks:
       - app-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "$MYSQL_USER", "-p$MYSQL_PASSWORD"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "${DATABASE_USER}", "-p${DATABASE_PASSWORD}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -50,8 +57,8 @@ services:
     image: dbck/mailtrap:latest
     environment:
       - TZ=Europe/Berlin
-      - MAILTRAP_USER=mailtrap
-      - MAILTRAP_PASSWORD=supersecret
+      - MAILTRAP_USER=${SMTP_USERNAME}
+      - MAILTRAP_PASSWORD=${SMTP_PASSWORD}
     volumes:
       - maildata:/var/mail
     ports:

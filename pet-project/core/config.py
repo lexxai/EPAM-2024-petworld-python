@@ -1,3 +1,4 @@
+import os
 from pydantic import BaseModel, MySQLDsn
 from pydantic_settings import (
     BaseSettings,
@@ -11,9 +12,9 @@ class RunConfig(BaseModel):
 
 
 class DatabaseConfig(BaseModel):
-    url: MySQLDsn
+    url: MySQLDsn = ""  # type: ignore
     # Below is the temporary fix to have a proper host name for migrations!
-    alembic_url: str = "mysql+aiomysql://admin:admin@localhost:3306/petproject"
+    alembic_url: str = ""
     echo: bool = False
     echo_pool: bool = False
     pool_size: int = 50
@@ -49,14 +50,15 @@ class ApiSettings(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=(".env.template", ".env"),
+        env_file=(os.path.join(os.path.dirname(__file__), "..", "..", ".env"),) if not os.getenv("DOCKER") else (),
         case_sensitive=False,
         env_nested_delimiter="__",
         env_prefix="APP_CONFIG__",
+        extra="allow",
     )
     run: RunConfig = RunConfig()
     api: ApiSettings = ApiSettings()
-    db: DatabaseConfig
+    db: DatabaseConfig = DatabaseConfig()
     access_token: AccessToken = AccessToken()
 
 

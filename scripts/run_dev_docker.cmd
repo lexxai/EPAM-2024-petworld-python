@@ -1,6 +1,6 @@
 echo off
 PUSHD ..
 
-docker compose up --no-attach mailtrap
+docker compose up --build --no-attach mailtrap
 
 POPD
