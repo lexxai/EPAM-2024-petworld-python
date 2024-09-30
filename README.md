@@ -23,3 +23,5 @@
 1. .env moved to level of Docker env
 2. Configured logging_config
 ![logging_config example](image.png)
+3. Logging HTTP request (middleware)
+![middleware](image-1.png)

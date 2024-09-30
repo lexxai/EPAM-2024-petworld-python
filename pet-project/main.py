@@ -1,5 +1,6 @@
 import logging
 from contextlib import asynccontextmanager
+import time
 from core.models import db_helper
 from fastapi import FastAPI, Request
 from fastapi.responses import ORJSONResponse
@@ -28,3 +29,14 @@ main_app = FastAPI(
 main_app.include_router(
     api_router,
 )
+
+
+@main_app.middleware("http")
+async def log_request(request: Request, call_next):
+    logger.info(f"Request: {request.method} {request.url.path}")
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    logger.info(f"Response: {process_time:2.2f}s | {response.status_code}")
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
