@@ -7,6 +7,8 @@ from fastapi.responses import ORJSONResponse
 
 from logging_config import configure_logging
 from api import router as api_router
+from utils.measure_time import a_measure_time
+
 
 logger = logging.getLogger(__name__)
 
@@ -32,11 +34,7 @@ main_app.include_router(
 
 
 @main_app.middleware("http")
+@a_measure_time
 async def log_request(request: Request, call_next):
-    logger.info(f"Request: {request.method} {request.url.path}")
-    start_time = time.time()
     response = await call_next(request)
-    process_time = time.time() - start_time
-    logger.info(f"Response: {process_time:2.2f}s | {response.status_code}")
-    response.headers["X-Process-Time"] = str(process_time)
     return response
