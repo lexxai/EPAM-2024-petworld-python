@@ -1,6 +1,6 @@
 from fastapi_users import schemas
 
-from core.types.user_id import UserIdType
+from core.core_types.user_id import UserIdType
 from datetime import datetime
 from pydantic import BaseModel
 

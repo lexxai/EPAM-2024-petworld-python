@@ -5,7 +5,7 @@ from fastapi_users.db import (
 )
 from .base import Base
 from .mixins.id_int_pk import IdIntPkMixin
-from core.types.user_id import UserIdType
+from core.core_types.user_id import UserIdType
 from sqlalchemy.orm import Mapped, declared_attr, mapped_column
 from sqlalchemy import types, CheckConstraint, Boolean, func
 from datetime import datetime

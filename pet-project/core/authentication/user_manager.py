@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from core.config import settings
 from core.models import User
-from core.types.user_id import UserIdType
+from core.core_types.user_id import UserIdType
 from core.helpers.email_verification import MailSenderHelper
 
 if TYPE_CHECKING:
