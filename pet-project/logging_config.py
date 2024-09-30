@@ -15,7 +15,7 @@ def configure_logging():
                 "file": {
                     "class": "logging.Formatter",
                     "datefmt": "%Y-%m-%d %H:%M:%S",
-                    "format": "%(name)s: %(lineno)d - %(message)s",
+                    "format": "%(asctime)s %(name)s: %(lineno)d - %(message)s",
                 },
             },
             "handlers": {
@@ -28,7 +28,7 @@ def configure_logging():
                     "class": "logging.handlers.RotatingFileHandler",
                     "level": "DEBUG",
                     "formatter": "file",
-                    "filename": "pet.log",
+                    "filename": "logs/pet.log",
                     "maxBytes": 1024 * 1024 * 10,
                     "backupCount": 3,
                     "encoding": "utf8",
@@ -44,6 +44,6 @@ def configure_logging():
                     "level": "INFO",
                     "propagate": False,
                 },
-            }, 
+            },
         }
     )
