@@ -16,3 +16,10 @@
    * Status code
    * Total time required to complete the request
 2. _Additionally_ you could implement the same logging functionality, but using decorator approach, so that codebase is split to corresponding modules and looks concise.
+
+
+## Homework Solution
+
+1. .env moved to level of Docker env
+2. Configured logging_config
+![logging_config example](image.png)

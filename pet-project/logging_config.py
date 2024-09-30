@@ -10,12 +10,12 @@ def configure_logging():
                 "console": {
                     "class": "logging.Formatter",
                     "datefmt": "%Y-%m-%d %H:%M:%S",
-                    "format": "000%(name)s: %(lineno)d - %(message)s",
+                    "format": "%(name)s: %(lineno)d - %(message)s",
                 },
                 "file": {
                     "class": "logging.Formatter",
                     "datefmt": "%Y-%m-%d %H:%M:%S",
-                    "format": "000%(name)s: %(lineno)d - %(message)s",
+                    "format": "%(name)s: %(lineno)d - %(message)s",
                 },
             },
             "handlers": {

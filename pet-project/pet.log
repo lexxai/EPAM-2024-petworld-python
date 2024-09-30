@@ -1,0 +1,19 @@
+000main: 16 - Starting application : lifespan
+000uvicorn.error: 62 - Application startup complete.
+000uvicorn.error: 214 - Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+000uvicorn.error: 258 - Shutting down
+000uvicorn.error: 67 - Waiting for application shutdown.
+000uvicorn.error: 76 - Application shutdown complete.
+000uvicorn.error: 92 - Finished server process [6084]
+000main: 16 - Starting application : lifespan
+000uvicorn.error: 62 - Application startup complete.
+000uvicorn.error: 214 - Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+000uvicorn.error: 258 - Shutting down
+000uvicorn.error: 67 - Waiting for application shutdown.
+000uvicorn.error: 76 - Application shutdown complete.
+000uvicorn.error: 92 - Finished server process [27064]
+main: 16 - Starting application : lifespan
+uvicorn.error: 62 - Application startup complete.
+uvicorn.error: 214 - Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+uvicorn.access: 466 - 127.0.0.1:25315 - "GET /docs HTTP/1.1" 200
+uvicorn.access: 466 - 127.0.0.1:25315 - "GET /openapi.json HTTP/1.1" 200

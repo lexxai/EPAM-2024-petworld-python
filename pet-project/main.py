@@ -1,12 +1,19 @@
+import logging
 from contextlib import asynccontextmanager
 from core.models import db_helper
 from fastapi import FastAPI, Request
 from fastapi.responses import ORJSONResponse
+
+from logging_config import configure_logging
 from api import router as api_router
+
+logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    configure_logging()
+    logger.info("Starting application : lifespan")
     # startup
     yield
     # shutdown
