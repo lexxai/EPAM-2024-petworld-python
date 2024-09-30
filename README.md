@@ -16,3 +16,22 @@
    * Status code
    * Total time required to complete the request
 2. _Additionally_ you could implement the same logging functionality, but using decorator approach, so that codebase is split to corresponding modules and looks concise.
+
+
+## Homework Solution
+
+1. .env moved to level of Docker env
+2. Configured logging_config
+![logging_config example](image.png)
+3. Logging HTTP request (middleware)
+![middleware](image-1.png)
+4. Log request
+![alt text](image-2.png)
+![alt text](image-3.png)
+Postman:
+![alt text](image-4.png)
+Log postman /me:
+![alt text](image-5.png)
+Decorator:
+![alt text](image-7.png)
+![alt text](image-6.png)
