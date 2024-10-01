@@ -1,6 +1,5 @@
 import logging
 from contextlib import asynccontextmanager
-import time
 from core.models import db_helper
 from fastapi import FastAPI, Request
 from fastapi.responses import ORJSONResponse
