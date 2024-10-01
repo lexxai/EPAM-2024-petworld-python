@@ -36,5 +36,4 @@ main_app.include_router(
 @main_app.middleware("http")
 @a_measure_time
 async def log_request(request: Request, call_next):
-    response = await call_next(request)
-    return response
+    return await call_next(request)
