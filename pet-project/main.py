@@ -11,9 +11,9 @@ from utils.measure_time import a_measure_time
 from core.config import settings
 
 
-origins = [
-    settings.run.app_production_url
-]
+# origins = [
+#     settings.run.WEBSITE_HOSTNAME
+# ]
 
 logger = logging.getLogger(__name__)
 
@@ -33,13 +33,13 @@ main_app = FastAPI(
     lifespan=lifespan,
 )
 
-main_app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,  # Allow only specified origins
-    allow_credentials=True,
-    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allow all headers
-)
+# main_app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,  # Allow only specified origins
+#     allow_credentials=True,
+#     allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+#     allow_headers=["*"],  # Allow all headers
+# )
 
 main_app.include_router(
     api_router,

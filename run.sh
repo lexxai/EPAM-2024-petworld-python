@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #python3 -m venv .env
 echo "Run run.sh"
 pwd
