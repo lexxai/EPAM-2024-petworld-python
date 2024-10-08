@@ -8,10 +8,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from logging_config import configure_logging
 from api import router as api_router
 from utils.measure_time import a_measure_time
+from core.config import settings
 
 
 origins = [
-    "http://localhost:3333",
+    settings.run.app_production_url
 ]
 
 logger = logging.getLogger(__name__)

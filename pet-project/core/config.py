@@ -9,6 +9,7 @@ from pydantic_settings import (
 class RunConfig(BaseModel):
     host: str = "0.0.0.0"
     port: int = 8000
+    app_production_url = "https://stitmarathonlexxaiprod.z16.web.core.windows.net"
 
 
 class DatabaseConfig(BaseModel):
@@ -67,4 +68,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-# print(settings)
+print(settings)
