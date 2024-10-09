@@ -9,7 +9,7 @@
 */alembic/versions/
 
 # Ignore logs
-# logs/
+logs/
 
 # Ignore tests
 tests/
