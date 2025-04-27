@@ -1,7 +1,12 @@
+from pathlib import Path
 from logging.config import dictConfig
 
 
 def configure_logging():
+    # Create 'logs' folder if it doesn't exist
+    logs_dir = Path(__file__).parent / 'logs'
+    logs_dir.mkdir(exist_ok=True)
+    
     dictConfig(
         {
             "version": 1,
