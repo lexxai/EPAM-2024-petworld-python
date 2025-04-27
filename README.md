@@ -3,7 +3,7 @@
 ***
 > This guide should be used for local setup and testing only purposes. Don't use any credentials you might bump into in files like `docker-compose.yml` in production.
 
-1. Based on `.env.template`, create your own `.env` file and fill in all the possible entries. `APP_CONFIG__DB__URL` is mandatory to start the project and apply initial migrations.
+1. Based on `.env.template`, create your own `.env` file and fill in all the possible entries. `APP_CONFIG__DB__URL` is mandatory to start the project and apply initial migrations. P.S. It is mandatory to fill in passwords with any value you want
 2. Run `docker-compose up` command and make every container is up-and-running
 3. Apply the latest migrations you have in `alembic/versions` folder. For this use `alembic upgrade head` command.
 4. Follow `localhost:8000/docs` to have a view of APIs available to do further dev testing
